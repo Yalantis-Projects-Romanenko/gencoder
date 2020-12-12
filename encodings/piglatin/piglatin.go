@@ -5,19 +5,22 @@ import (
 	"unicode"
 )
 
-func isVowel(in rune) bool {
+func getVowelIndex(word string) int {
 	vowels := "aeiouAEIOU"
-	return strings.ContainsRune(vowels, in)
+	for i, c := range word {
+		if strings.ContainsRune(vowels, c) {
+			return i
+		}
+	}
+	return len(word)
 }
 
 func encodeWord(in string) string {
-	//fmt.Printf("encoding %q\n",in)
-	if isVowel(rune(in[0])) {
+	index := getVowelIndex(in)
+	if index == 0 {
 		return in + "yay"
-	} else if !isVowel(rune(in[0])) && !isVowel(rune(in[1])) {
-		return in[2:] + in[:2] + "ay"
 	} else {
-		return in[1:] + in[:1] + "ay"
+		return in[index:] + in[:index] + "ay"
 	}
 }
 
