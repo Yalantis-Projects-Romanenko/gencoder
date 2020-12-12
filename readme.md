@@ -3,10 +3,15 @@ Gencoder is a command line tool for encoding and decoding sentences using funny 
 It is a homework project for Yalantis Golang School
 
 ## Instalation
-run
 ```
 go get ./...
 ```
+
+## Test
+```
+go test ./encodings/
+```
+
 ## Usage
 #### Encode
 to encode string run next command
