@@ -1,17 +1,17 @@
 package piglatin
 
-import "strings"
+import (
+	"strings"
+	"unicode"
+)
 
 func isVowel(in rune) bool {
-	switch in {
-	case 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U':
-		return true
-	default:
-		return false
-	}
+	vowels := "aeiouAEIOU"
+	return strings.ContainsRune(vowels, in)
 }
 
 func encodeWord(in string) string {
+	//fmt.Printf("encoding %q\n",in)
 	if isVowel(rune(in[0])) {
 		return in + "yay"
 	} else if !isVowel(rune(in[0])) && !isVowel(rune(in[1])) {
@@ -25,11 +25,11 @@ func Encode(toEncode string) string {
 	result := make([]rune, 0, len(toEncode)*2)
 	var word string
 	var wasSpecial bool
+
 	for _, char := range toEncode {
-		if char < 'A' || char > 'z' {
+		if !unicode.IsLetter(char) {
 			if !wasSpecial {
-				word = encodeWord(word)
-				result = append(result, []rune(word)...)
+				result = append(result, []rune(encodeWord(word))...)
 			}
 			result = append(result, char)
 			wasSpecial = true
@@ -44,8 +44,7 @@ func Encode(toEncode string) string {
 	}
 
 	if !wasSpecial {
-		word = encodeWord(word)
-		result = append(result, []rune(word)...)
+		result = append(result, []rune(encodeWord(word))...)
 	}
 
 	return strings.TrimSpace(string(result))
