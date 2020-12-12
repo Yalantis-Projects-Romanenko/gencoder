@@ -1,5 +1,7 @@
 package piglatin
 
+import "strings"
+
 func isVowel(in rune) bool {
 	switch in {
 	case 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U':
@@ -20,7 +22,7 @@ func encodeWord(in string) string {
 }
 
 func Encode(toEncode string) string {
-	result := make([]rune, len(toEncode)*2)
+	result := make([]rune, 0, len(toEncode)*2)
 	var word string
 	var wasSpecial bool
 	for _, char := range toEncode {
@@ -46,5 +48,5 @@ func Encode(toEncode string) string {
 		result = append(result, []rune(word)...)
 	}
 
-	return string(result)
+	return strings.TrimSpace(string(result))
 }
