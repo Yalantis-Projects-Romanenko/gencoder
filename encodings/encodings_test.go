@@ -2,14 +2,15 @@ package encodings
 
 import (
 	"fmt"
-	"github.com/fdistorted/gencoder/encodings/numbers"
-	"github.com/fdistorted/gencoder/encodings/piglatin"
 	"io/ioutil"
 	"os"
 	"path"
 	"runtime"
 	"strings"
 	"testing"
+
+	"github.com/fdistorted/gencoder/encodings/numbers"
+	"github.com/fdistorted/gencoder/encodings/piglatin"
 )
 
 func TestNumbers(t *testing.T) {
@@ -20,6 +21,7 @@ func TestNumbers(t *testing.T) {
 func TestPiglatin(t *testing.T) {
 	//fmt.Printf("string %q\n",piglatin.Encode("Hello Mr. Fox! How are you?" )  )
 	assert(piglatin.Encode("Hello Mr. Fox! How are you?") == "elloHay Mray. oxFay! owHay areyay ouyay?")
+	assert(piglatin.Encode("Hello Mr. Fox! How are you") == "elloHay Mray. oxFay! owHay areyay ouyay")
 }
 
 func assert(o bool) {

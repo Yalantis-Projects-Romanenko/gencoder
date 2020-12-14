@@ -5,7 +5,7 @@ import (
 	"unicode"
 )
 
-func getVowelIndex(word string) int {
+func getPrefixIndex(word string) int {
 	vowels := "aeiouAEIOU"
 	for i, c := range word {
 		if strings.ContainsRune(vowels, c) {
@@ -16,37 +16,39 @@ func getVowelIndex(word string) int {
 }
 
 func encodeWord(in string) string {
-	index := getVowelIndex(in)
-	if index == 0 {
+	prefixIndex := getPrefixIndex(in)
+	if prefixIndex == 0 {
 		return in + "yay"
-	} else {
-		return in[index:] + in[:index] + "ay"
 	}
+	return in[prefixIndex:] + in[:prefixIndex] + "ay"
+
 }
 
+// Encode encodes string to piglatin
 func Encode(toEncode string) string {
 	result := make([]rune, 0, len(toEncode)*2)
 	var word string
-	var wasSpecial bool
+	var wasLetter bool // flag that marks if last char in text was a letter
 
 	for _, char := range toEncode {
 		if !unicode.IsLetter(char) {
-			if !wasSpecial {
+			if wasLetter {
 				result = append(result, []rune(encodeWord(word))...)
 			}
 			result = append(result, char)
-			wasSpecial = true
+			wasLetter = false
 		} else {
-			if wasSpecial {
+			// reset word string after not letter sign
+			if !wasLetter {
 				word = ""
 			}
-			wasSpecial = false
+			wasLetter = true
 			word = word + string(char)
 		}
-
 	}
 
-	if !wasSpecial {
+	// add word last word if there was no special sign in the end of the wor
+	if wasLetter {
 		result = append(result, []rune(encodeWord(word))...)
 	}
 
