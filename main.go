@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/fdistorted/gencrypt/cmd"
+	"github.com/fdistorted/gencoder/cmd"
 )
 
 func main() {

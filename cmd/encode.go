@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/fdistorted/gencrypt/encodings"
+	"github.com/fdistorted/gencoder/encodings"
 	"github.com/spf13/cobra"
 )
 

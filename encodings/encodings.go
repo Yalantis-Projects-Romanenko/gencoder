@@ -1,8 +1,8 @@
 package encodings
 
 import (
-	"github.com/fdistorted/gencrypt/encodings/numbers"
-	"github.com/fdistorted/gencrypt/encodings/piglatin"
+	"github.com/fdistorted/gencoder/encodings/numbers"
+	"github.com/fdistorted/gencoder/encodings/piglatin"
 )
 
 var EncodeFunctions = map[string]func(string) string{

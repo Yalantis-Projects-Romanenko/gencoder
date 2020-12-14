@@ -2,8 +2,8 @@ package encodings
 
 import (
 	"fmt"
-	"github.com/fdistorted/gencrypt/encodings/numbers"
-	"github.com/fdistorted/gencrypt/encodings/piglatin"
+	"github.com/fdistorted/gencoder/encodings/numbers"
+	"github.com/fdistorted/gencoder/encodings/piglatin"
 	"io/ioutil"
 	"os"
 	"path"

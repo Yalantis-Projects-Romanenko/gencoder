@@ -2,7 +2,7 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/fdistorted/gencrypt/encodings"
+	"github.com/fdistorted/gencoder/encodings"
 	"strings"
 
 	"github.com/spf13/cobra"

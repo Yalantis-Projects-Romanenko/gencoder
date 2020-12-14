@@ -6,7 +6,7 @@ import (
 
 var (
 	rootCmd = &cobra.Command{
-		Use:   "gencrypt",
+		Use:   "gencoder",
 		Short: "text encoder/decoder. supports piglatin and numbers",
 		Long:  `this is the text encoder decoder tool that works with different encodings`,
 	}

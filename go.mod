@@ -1,4 +1,4 @@
-module github.com/fdistorted/gencrypt
+module github.com/fdistorted/gencoder
 
 go 1.15
 
