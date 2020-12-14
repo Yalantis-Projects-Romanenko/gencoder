@@ -2,10 +2,6 @@
 Gencoder is a command line tool for encoding and decoding text using funny encodings. 
 It is a homework project for Yalantis Golang School
 
-## Instalation
-```
-go get ./...
-```
 
 ## Test
 ```
